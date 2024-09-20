@@ -50,27 +50,19 @@ const setReview = (viewIndex) => {
 }
 
 const clickPrevBtn = () => {
-  if(curIndex === 0){
-    curIndex = reviews.length - 1;   
-  }else{
-    curIndex -= 1;    
-  }
+  curIndex = (curIndex === 0) ? reviews.length - 1 : curIndex - 1;
   setReview(curIndex);
-}
+};
 
 const clickNextBtn = () => {
-  if(curIndex === (reviews.length - 1)){
-    curIndex = 0;
-  }else{
-    curIndex += 1;
-  }
+  curIndex = (curIndex === reviews.length - 1) ? 0 : curIndex + 1;
   setReview(curIndex);
-}
+};
 
 const clickRandomBtn = () => {
   const randomIndex = Math.floor(Math.random() * reviews.length);
   setReview(randomIndex);
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', clickPrevBtn);
